@@ -1,0 +1,138 @@
+{
+ "student": "zohare11",
+ "variant": "profile-skewed__shape-waldmeier__width-activity",
+ "kind": "candidate",
+ "question": "Waldmeier + activity width + asymmetric belt",
+ "spec": {
+  "shape": "waldmeier",
+  "pooling": "shared",
+  "drift": "exponential",
+  "profile": "skewed",
+  "width": "activity",
+  "gate": "none",
+  "emission": "threshold"
+ },
+ "my_knob": {
+  "stage": "profile",
+  "values": [
+   "skewed"
+  ],
+  "default": "gaussian",
+  "question": "Is the emerging belt lopsided in latitude: does it spread further poleward of its centre than equatorward?",
+  "expected": "r > 0 (poleward half wider). Week 3's Figure 4 showed real wings starting higher than the synthetic ones and equatorward tails thinning faster, which a symmetric band cannot do."
+ },
+ "reverted_as_ties": {
+  "drift": "floor gained +0.0176 +/- 0.0379: smaller than its standard error, a tie",
+  "emission": "direct gained +0.0025 +/- 0.0130: smaller than its standard error, a tie",
+  "profile": "image -> skewed by hand: the combination beat the greedy model by +0.470 +/- 0.215",
+  "width": "amplitude -> activity by hand: the combination beat the greedy model by +0.470 +/- 0.215"
+ },
+ "fitted_parameters": 28,
+ "held_out_nll_per_hemicycle_year": -28.773899721425526,
+ "between_hemicycle_spread": 20.38337690870069,
+ "per_hemicycle": {
+  "12N": -0.9872153601870517,
+  "12S": -6.388380281964293,
+  "13N": -12.025096287084848,
+  "13S": -20.443959986634717,
+  "14N": -8.117359856492378,
+  "14S": -5.3745522330389655,
+  "15N": -19.50764730004531,
+  "15S": -15.931864221553228,
+  "17N": -35.5316273181103,
+  "17S": -37.496814474348845,
+  "18N": -54.122790347395814,
+  "18S": -45.673626051648036,
+  "19N": -79.35785652848021,
+  "19S": -51.342100391982555,
+  "21N": -34.78423206383842,
+  "21S": -35.67267717005737,
+  "23N": -25.289690102751887,
+  "23S": -29.88270501004525
+ },
+ "paired_vs_baseline": {
+  "mean": -3.337250938513294,
+  "se": 1.3226987757593185,
+  "median": -1.5934204100996858,
+  "better": 15,
+  "of": 18
+ },
+ "ks_median": 0.04269123478061851,
+ "ks_not_rejected": 10,
+ "plausibility": {
+  "cycle": 19,
+  "table": [
+   {
+    "hemicycle": "19N",
+    "predicted": 1357.5296841683971,
+    "observed": 1590,
+    "simulated": 1371,
+    "centroid_model": 16.737179229169197,
+    "centroid_obs": 17.16069182389937,
+    "spread_model": 7.644195365338323,
+    "spread_obs": 8.507418494423913
+   },
+   {
+    "hemicycle": "19S",
+    "predicted": 1198.2691581181966,
+    "observed": 1121,
+    "simulated": 1221,
+    "centroid_model": 16.172279417007175,
+    "centroid_obs": 16.36842105263158,
+    "spread_model": 7.426457385323383,
+    "spread_obs": 7.604571117406902
+   }
+  ]
+ },
+ "count_error_percent": 10.75682610021262,
+ "protocol": {
+  "held_out_unit_contributed": [
+   "its own events, to fit its own clock shift (drift timescale from the training fold)"
+  ],
+  "declaration": "Leave-one-cycle-out over the nine development cycles, both hemispheres held out together. Inside every fold the shared drift timescale, every shape parameter and a_ref come from the training wings only; the held-out wing's amplitude is predicted from the sunspot-area record through a map fitted on the training wings. Cycles 16, 20 and 22 were never touched."
+ },
+ "fingerprint": {
+  "recipe": {
+   "mesh": [
+    201,
+    241
+   ],
+   "domain": [
+    0.0,
+    60.0
+   ],
+   "window": [
+    -6.0,
+    11.0
+   ],
+   "folds": [
+    12,
+    13,
+    14,
+    15,
+    17,
+    18,
+    19,
+    21,
+    23
+   ],
+   "withheld": [
+    16,
+    20,
+    22
+   ],
+   "analysis_set": [
+    12,
+    23,
+    30.0
+   ],
+   "gauge": [
+    1.0,
+    1.0,
+    15.0
+   ],
+   "headline_amplitude": "area record"
+  },
+  "digest": "5e55384fbc54"
+ }
+}
